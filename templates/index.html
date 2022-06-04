@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Flasaktyl BETA</h1>
+    <p>Login or register to use the panel</p>
+    {% if not "username" in session %}
+    <a href="/login">Login</a><a href="/register">Register</a>
+    {% else %}
+    <a href="/dashboard">Dashboard</a>
+    {% endif %}
+{% endblock %}
