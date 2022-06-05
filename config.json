@@ -1,1 +1,9 @@
-{}
+{
+  "api": {
+    "url": "panel.example.com",
+    "key": "1234567890"
+  },
+  "auth": {
+    "register": true
+  }
+}
