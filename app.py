@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 import json
 import configmanager
 from pydactyl import PterodactylClient
+import requests
 from colorama import init, Fore, Back, Style
 
 # Pterodactyl API
@@ -176,6 +177,14 @@ def hash_password(password):
 # Run the app
 port = configmanager.get_config()["app"]['port']
 if __name__ == "__main__":
+    try:
+        resp = "0.3"
+    except:
+        print(Back.RED + "[ ERROR ] -> Could not get the latest version" + Style.RESET_ALL)
+    if resp == "0.3":
+        print(Fore.GREEN + "[ OK ] -> Version is up to date" + Style.RESET_ALL)
+    else:
+        print(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
     print(Fore.BLUE + "[ INFO ] -> Flasaktyl is online at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
     
