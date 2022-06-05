@@ -1,4 +1,66 @@
 {% extends "base.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
 {% block content %}
-Welcome {{user}}<br><br><a href="/logout">Logout</a>
+{% include "components/navbar.html" %}
+<h1 class="text-center text-white"><br>Welcome {{user}}<br><br></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">RAM</h5>
+                    <p class="card-text">
+                        <span class="usage">{{usedram}} \ {{ram}}</span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ramval}}" aria-valuemin="0"
+                            aria-valuemax="100" style="width:{{ramval}}%;">
+
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">DISK</h5>
+                    <p class="card-text">
+                        <span class="usage">{{useddisk}} \ {{disk}}</span>
+                    <div class="progress">
+
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{diskval}}" aria-valuemin="0"
+                            aria-valuemax="100" style="width:{{diskval}}%;">
+
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">CPU</h5>
+                    <p class="card-text">
+                        <span class="usage"></span>{{usedcpu}} \ {{cpu}}
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{cpuval}}" aria-valuemin="0"
+                            aria-valuemax="100" style="width:{{cpuval}}%;">
+
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<h2>Coins: {{coins}}</h2>
+<br><a href="/logout">Logout</a>
 {% endblock %}

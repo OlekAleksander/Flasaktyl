@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Rubik:wght@300;400&display=swap');
+*{
+    font-family: 'Rubik', sans-serif;
+    color:white;
+}
+body{
+    background-color:#252631;
+}
+.card{
+    border-radius: 16px;
+    background-color: #282a36;
+}
+.progress-bar{
+    background-color: #bd93f9;
+}
+.progress{
+    background-color: #252631;
+}
+.card-title{
+    font-family: 'IBM Plex Mono', monospace;
+}
+.navbar{
+    background-color: #282a36;
+}

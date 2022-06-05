@@ -1,9 +1,30 @@
 {
   "api": {
-    "url": "panel.example.com",
+    "panel_domain": "panel.example.com",
     "key": "1234567890"
   },
   "auth": {
-    "register": true
+    "register": true,
+    "log": true
+  },
+  "app":{
+    "port": 5000,
+    "debug": true,
+    "name": "Flasaktyl"
+  },
+  "admins": [
+    "OlekAleksander",
+    "Admin_Username"
+  ],
+  "users":{
+    "default": {
+      "coins": "1500",
+      "ram": "1",
+      "cpu": "1",
+      "disk": "5"
+    }
+  },
+  "server_creation":{
+    "enabled": true
   }
 }
