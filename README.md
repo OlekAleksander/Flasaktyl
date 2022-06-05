@@ -3,11 +3,13 @@
 
 **PROS**
 > Design based on Dracula theme
+
 > Fast
+
 > Easy to mod
 
 **CONS**
 > Unfinished
 
-> **Support: **__https://discord.gg/Cv92y2eHF2__
+> Support: __https://discord.gg/Cv92y2eHF2__
  
