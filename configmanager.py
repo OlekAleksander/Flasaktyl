@@ -1,4 +1,5 @@
 import json
+from colorama import init, Fore, Back, Style
 
 def get_config():
     try:
@@ -6,7 +7,7 @@ def get_config():
             config = json.load(f)
         return config
     except:
-        print("[ ERROR ] -> Config file not found")
+        print(Back.RED + "[ ERROR ] -> Config file not found")
         return None
     
 

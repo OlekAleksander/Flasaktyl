@@ -3,11 +3,15 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 import json
 import configmanager
 from pydactyl import PterodactylClient
+from colorama import init, Fore, Back, Style
 
 # Pterodactyl API
 panel_domain = configmanager.get_config()["api"]['panel_domain']
 key = configmanager.get_config()["api"]['key']
-api = PterodactylClient('https://panel.mydomain.com', 'MySuperSecretApiKey')
+api = PterodactylClient(panel_domain, key)
+
+# Global variables
+debug = configmanager.get_config()["app"]['debug']
 
 # Flask config
 app = Flask(__name__)
@@ -21,7 +25,7 @@ def index():
     if session == None:
         logged = False
 
-    return render_template('index.html', logged = logged)
+    return render_template('index.html', logged = logged, gamepanel = panel_domain)
 
 # Login route
 @app.route("/login", methods=['GET', 'POST'])
@@ -30,6 +34,11 @@ def login():
         username = request.form['username']
         password = request.form['password']
         users = get_users()
+        # Check if user entered every field
+        if username == "" or password == "":
+            flash("Please fill in all fields", "danger")
+            return redirect(url_for('login'))
+        # Check if user exists
         if username in users:
             if check_password(password, users[username]['password']):
                 session['username'] = username
@@ -54,8 +63,14 @@ def register():
         lastname = request.form['secondname']
         username = request.form['username']
         password = request.form['password']
+        # create account in pterodactyl
+
+
         users = get_users()
-        
+        # Check if user entered every field
+        if username == "" or password == "":
+            flash("Please fill in all fields", "danger")
+            return redirect(url_for('register'))
         # check if the user already exists
         if username in users:
             flash("User already exists", "danger")
@@ -66,8 +81,19 @@ def register():
             flash("Mail already in use", "danger")
             return redirect(url_for("register"))
 
+        # check if password is long enough
+        if len(password) < 8:
+            flash("Password is too short", "danger")
+            return redirect(url_for("register"))
+
         # create user
         create_user(username, password,mail,firstname,lastname)
+        try:
+            api.user.create_user(username,mail, firstname, lastname,None, password)
+        except:
+            flash("Could not create user", "danger")
+            print(Back.RED + "[ ERROR ] -> Could create pterodactyl user for " + username + Style.RESET_ALL)
+            return redirect(url_for("register"))
         flash("You were successfully registered", "success")
         return redirect(url_for("login"))
     return render_template('register.html')
@@ -149,6 +175,7 @@ def hash_password(password):
 
 # Run the app
 port = configmanager.get_config()["app"]['port']
-debug = configmanager.get_config()["app"]['debug']
 if __name__ == "__main__":
+    print(Fore.BLUE + "[ INFO ] -> Flasaktyl is online at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
+    

@@ -1,6 +1,6 @@
 {
   "api": {
-    "panel_domain": "panel.example.com",
+    "panel_domain": "https://panel.example.com",
     "key": "1234567890"
   },
   "auth": {
@@ -13,8 +13,7 @@
     "name": "Flasaktyl"
   },
   "admins": [
-    "OlekAleksander",
-    "Admin_Username"
+    "Test"
   ],
   "users":{
     "default": {
@@ -26,5 +25,19 @@
   },
   "server_creation":{
     "enabled": true
+  },
+  "seo":
+  {
+    "enabled": true,
+    "title": "Flasaktyl",
+    "description": "Flasaktyl is a free hosting service for your website."
+  },
+  "tos":{
+    "enabled": true,
+    "text": "Your Terms of Service"
+  },
+  "privacy policy":{
+    "enabled": true,
+    "text": "Your Privacy Policy"
   }
 }

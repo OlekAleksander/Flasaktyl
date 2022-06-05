@@ -3,12 +3,40 @@
 Register
 {% endblock %}
 {% block content %}
-<form action="/register" method="POST">
-    <input type="email" name="mail" placeholder="Email">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="firstname" placeholder="First Name">
-    <input type="text" name="secondname" placeholder="Last Name">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit">
-</form>
+<div style="width:450px" class="card centered text-center">
+    <div class="card-header">
+        <h3>Register</h3>
+    </div>
+    <div class="card-body">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" name="username" placeholder="Username">
+            </div><br>
+            <div class="form-group">
+                <input type="text" class="form-control" id="email1" name="mail" placeholder="Email">
+            </div><br>
+            <div class="form-group">
+                <input type="text" class="form-control" id="email2" name="firstname" placeholder="First Name">
+            </div><br>
+            <div class="form-group">
+                <input type="text" class="form-control" id="email3" name="secondname" placeholder="Last Name">
+            </div><br>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <br>
+            <a href="/login">Already have an account?</a><br>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
