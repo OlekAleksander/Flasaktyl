@@ -194,6 +194,6 @@ if __name__ == "__main__":
         print(Fore.GREEN + "[ OK ] -> Version is up to date" + Style.RESET_ALL)
     else:
         print(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
-    print(Fore.BLUE + "[ INFO ] -> Flasaktyl is online at port " + str(port) + Style.RESET_ALL)
+    print(Fore.BLUE + "[ INFO ] -> Flasaktyl is running at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
     
