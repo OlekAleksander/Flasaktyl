@@ -11,5 +11,8 @@
 **CONS**
 > Unfinished
 
-> Support: __https://discord.gg/Cv92y2eHF2__
+
+
+**Need support?**
+> Discord:  __https://discord.gg/Cv92y2eHF2__
  
