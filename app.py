@@ -18,6 +18,14 @@ debug = configmanager.get_config()["app"]['debug']
 app = Flask(__name__)
 app.secret_key = 'secret'
 
+# Disable flasks logs
+flask_logs = configmanager.get_config()["app"]["flask_logs"]
+if not flask_logs:    
+    import logging
+    log = logging.getLogger('werkzeug')
+    log.setLevel(logging.ERROR)
+    from flask import cli
+    cli.show_server_banner = lambda *_: None
 
 # Index route
 @app.route("/")
@@ -188,6 +196,4 @@ if __name__ == "__main__":
         print(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
     print(Fore.BLUE + "[ INFO ] -> Flasaktyl is online at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
-    if flask_logs == False:
-        logging.getLogger('werkzeug').disabled = True
     
