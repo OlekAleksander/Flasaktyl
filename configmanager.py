@@ -7,7 +7,7 @@ def get_config():
             config = json.load(f)
         return config
     except:
-        print(Back.RED + "[ ERROR ] -> Config file not found")
+        print(Back.RED + "[ ERROR ] -> Config file corrupted")
         return None
     
 
