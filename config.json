@@ -10,7 +10,8 @@
   "app":{
     "port": 5000,
     "debug": true,
-    "name": "Flasaktyl"
+    "name": "Flasaktyl",
+    "flask_logs": false
   },
   "admins": [
     "Test"
