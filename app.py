@@ -176,6 +176,7 @@ def hash_password(password):
 
 # Run the app
 port = configmanager.get_config()["app"]['port']
+flask_logs = configmanager.get_config()["app"]["flask_logs"]
 if __name__ == "__main__":
     try:
         resp = "0.3"
@@ -187,4 +188,6 @@ if __name__ == "__main__":
         print(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
     print(Fore.BLUE + "[ INFO ] -> Flasaktyl is online at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
+    if flask_logs == False:
+        logging.getLogger('werkzeug').disabled = True
     
