@@ -1,4 +1,3 @@
 flask
 py-dactyl
 colorama
-werkzeug==2.0.0
