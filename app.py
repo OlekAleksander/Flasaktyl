@@ -1,9 +1,11 @@
 # Imports and package installer
 
-def install(package):
+def install(name):
     import subprocess
+    subprocess.call(['pip', 'install', name])
+    import os
     import sys
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 try:
     from flask import Flask, render_template, request, redirect, url_for, flash, session
