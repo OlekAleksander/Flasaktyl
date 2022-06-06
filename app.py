@@ -1,4 +1,8 @@
-# Imports
+# Imports and package installer
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
 import os
 try:
     from flask import Flask, render_template, request, redirect, url_for, flash, session
@@ -191,9 +195,6 @@ def check_password(password, hashed_password):
 def hash_password(password):
     import hashlib
     return hashlib.sha256(password.encode('utf-8')).hexdigest()
-
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 # Run the app
 port = configmanager.get_config()["app"]['port']
