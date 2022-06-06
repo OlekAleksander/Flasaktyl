@@ -1,9 +1,8 @@
 # Imports and package installer
 
-import subprocess
-import sys
-
 def install(package):
+    import subprocess
+    import sys
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 try:
