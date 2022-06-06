@@ -1,4 +1,5 @@
-import colorama
+try:
+    import colorama
 
 def log(message,type):
     now = datetime.now()
