@@ -1,10 +1,20 @@
 # Imports
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+import os
+try:
+    from flask import Flask, render_template, request, redirect, url_for, flash, session
+except:
+    install("flask")
 import json
 import configmanager
-from pydactyl import PterodactylClient
+try:
+    from pydactyl import PterodactylClient
+except:
+    install("py-dactyl")
 import requests
-from colorama import init, Fore, Back, Style
+try:
+    from colorama import init, Fore, Back, Style
+except:
+    install("colorama")
 
 # Pterodactyl API
 panel_domain = configmanager.get_config()["api"]['panel_domain']
@@ -181,6 +191,9 @@ def check_password(password, hashed_password):
 def hash_password(password):
     import hashlib
     return hashlib.sha256(password.encode('utf-8')).hexdigest()
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 # Run the app
 port = configmanager.get_config()["app"]['port']
