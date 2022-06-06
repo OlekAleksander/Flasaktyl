@@ -1,5 +1,6 @@
 import json
-from colorama import init, Fore, Back, Style
+try:
+   from colorama import init, Fore, Back, Style
 
 def get_config():
     try:
