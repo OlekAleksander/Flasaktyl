@@ -12,7 +12,6 @@ try:
 except:
     install("flask")
 import json
-import configmanager
 try:
     from pydactyl import PterodactylClient
 except:
@@ -23,6 +22,9 @@ try:
 except:
     install("colorama")
 
+import logger
+import configmanager
+import json
 # Pterodactyl API
 panel_domain = configmanager.get_config()["api"]['panel_domain']
 key = configmanager.get_config()["api"]['key']
