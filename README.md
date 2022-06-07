@@ -10,5 +10,5 @@
 6. Start the server (You may need to change the startup file name to "app.py", you can do that in the Startup tab )
 
 # Links
-> Discord:  __https://discord.gg/Cv92y2eHF2__
+> Discord:  https://discord.gg/Cv92y2eHF2
  
