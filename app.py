@@ -59,6 +59,12 @@ def tos():
     tos = configmanager.get_config()["tos"]["text"]
     return render_template('tos.html', tos=tos)
 
+# Privacy Policy route
+@app.route("/tos")
+def tos():
+    tos = configmanager.get_config()["privacy"]["text"]
+    return render_template('privacy.html', privacy=privacy)
+    
 # Login route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
