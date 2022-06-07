@@ -221,7 +221,7 @@ if __name__ == "__main__":
         resp = "0.3"
     except:
         logger.log(Back.RED + "[ ERROR ] -> Could not get the latest version" + Style.RESET_ALL)
-    if resp == "0.3":
+    if resp == "0.5":
         logger.log(Fore.GREEN + "[ OK ] -> Version is up to date" + Style.RESET_ALL)
     else:
         logger.log(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
