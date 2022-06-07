@@ -35,6 +35,7 @@ api = PterodactylClient(panel_domain, key)
 
 # Global variables
 debug = configmanager.get_config()["app"]['debug']
+ver = 0.6
 
 # Flask config
 app = Flask(__name__)
@@ -226,10 +227,10 @@ if __name__ == "__main__":
         resp = page.read()
     except:
         logger.log(Back.RED + "[ ERROR ] -> Could not get the latest version" + Style.RESET_ALL)
-    if resp == "0.5":
-        logger.log(Fore.GREEN + "[ OK ] -> Version is up to date" + Style.RESET_ALL)
+    if resp == ver:
+        logger.log(Fore.GREEN + "[ OK ] -> Flasaktyl is up to date" + Style.RESET_ALL)
     else:
-        logger.log(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
+        logger.log(Fore.RED + "[ INFO ] -> Flasaktyl " + ver + " is outdated" + Style.RESET_ALL)
     logger.log(Fore.BLUE + "[ INFO ] -> Flasaktyl is running at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
     
