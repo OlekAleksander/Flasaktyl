@@ -1,7 +1,6 @@
 import json
 try:
-   from colorama import init, Fore, Back, Style
-
+  from colorama import init, Fore, Back, Style
 def get_config():
     try:
         with open('config.json') as f:
@@ -10,7 +9,6 @@ def get_config():
     except:
         print(Back.RED + "[ ERROR ] -> Config file corrupted")
         return None
-    
 
 def set_config(config):
     with open('config.json', 'w') as f:
