@@ -53,6 +53,10 @@ def index():
 
     return render_template('index.html', logged = logged, gamepanel = panel_domain)
 
+# Terms Of Service route
+@app.route("/tos")
+    tos = configmanager.get_config()["tos"]["text"]
+    return render_template('tos.html', tos=tos)
 # Login route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
