@@ -1,7 +1,7 @@
-# Info
+# Flasaktyl
  A powerful Client Area for Pterodactyl, written in python using **pydactyl** and **flask**
  
- # Installation
+# Installation
 1. Create a server using the python egg (discord.py generic)
 2. Upload all of the files to the home directory
 3. Change the port in the **config.json** file to your server port.
