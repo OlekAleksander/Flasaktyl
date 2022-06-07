@@ -11,11 +11,14 @@ try:
     from flask import Flask, render_template, request, redirect, url_for, flash, session
 except:
     install("flask")
+    
 import json
+
 try:
     from pydactyl import PterodactylClient
 except:
     install("py-dactyl")
+    
 import requests
 try:
     from colorama import init, Fore, Back, Style
