@@ -124,7 +124,7 @@ def register():
             api.user.create_user(username,mail, firstname, lastname,None, password)
         except:
             flash("Could not create user", "danger")
-            print(Back.RED + "[ ERROR ] -> Could create pterodactyl user for " + username + Style.RESET_ALL)
+            logger.log(Back.RED + "[ ERROR ] -> Could create pterodactyl user for " + username + Style.RESET_ALL)
             return redirect(url_for("register"))
         flash("You were successfully registered", "success")
         return redirect(url_for("login"))
@@ -212,11 +212,11 @@ if __name__ == "__main__":
     try:
         resp = "0.3"
     except:
-        print(Back.RED + "[ ERROR ] -> Could not get the latest version" + Style.RESET_ALL)
+        logger.log(Back.RED + "[ ERROR ] -> Could not get the latest version" + Style.RESET_ALL)
     if resp == "0.3":
-        print(Fore.GREEN + "[ OK ] -> Version is up to date" + Style.RESET_ALL)
+        logger.log(Fore.GREEN + "[ OK ] -> Version is up to date" + Style.RESET_ALL)
     else:
-        print(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
-    print(Fore.BLUE + "[ INFO ] -> Flasaktyl is running at port " + str(port) + Style.RESET_ALL)
+        logger.log(Fore.RED + "[ INFO ] -> Version is outdated" + Style.RESET_ALL)
+    logger.log(Fore.BLUE + "[ INFO ] -> Flasaktyl is running at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
     
