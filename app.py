@@ -55,8 +55,10 @@ def index():
 
 # Terms Of Service route
 @app.route("/tos")
+def tos():
     tos = configmanager.get_config()["tos"]["text"]
     return render_template('tos.html', tos=tos)
+
 # Login route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
