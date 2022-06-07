@@ -221,7 +221,9 @@ port = configmanager.get_config()["app"]['port']
 flask_logs = configmanager.get_config()["app"]["flask_logs"]
 if __name__ == "__main__":
     try:
-        resp = "0.3"
+        import urllib.request
+        page = urllib.request.urlopen('https://olekaleksander.github.io/Flasaktyl/ver.html')
+        resp = page.read()
     except:
         logger.log(Back.RED + "[ ERROR ] -> Could not get the latest version" + Style.RESET_ALL)
     if resp == "0.5":
