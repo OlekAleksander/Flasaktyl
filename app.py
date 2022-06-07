@@ -60,8 +60,8 @@ def tos():
     return render_template('tos.html', tos=tos)
 
 # Privacy Policy route
-@app.route("/tos")
-def tos():
+@app.route("/privacy")
+def privacy():
     tos = configmanager.get_config()["privacy"]["text"]
     return render_template('privacy.html', privacy=privacy)
     
