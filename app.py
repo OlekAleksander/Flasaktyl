@@ -190,7 +190,6 @@ def get_user_disk(username):
     users = get_users()
     return users[username]['disk']
 
-
 def get_users():
     with open('users.json') as f:
         users = json.load(f)
