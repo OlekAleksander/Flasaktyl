@@ -108,12 +108,10 @@ def register():
         lastname = request.form['secondname']
         username = request.form['username']
         password = request.form['password']
-        # create account in pterodactyl
-
 
         users = get_users()
         # Check if user entered every field
-        if username == "" or password == "":
+        if username == "" or password == "" or mail== "" or lastname == "":
             flash("Please fill in all fields", "danger")
             return redirect(url_for('register'))
         # check if the user already exists
