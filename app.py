@@ -229,6 +229,6 @@ if __name__ == "__main__":
         logger.log(Fore.GREEN + "[ OK ] -> Flasaktyl is up to date" + Style.RESET_ALL)
     else:
         logger.log(Fore.RED + "[ INFO ] -> Flasaktyl " + ver + " is outdated" + Style.RESET_ALL)
-    logger.log(Fore.BLUE + "[ INFO ] -> Flasaktyl is running at port " + str(port) + Style.RESET_ALL)
+    logger.log(Fore.GREEN + "[ INFO ] -> Flasaktyl is running at port " + str(port) + Style.RESET_ALL)
     app.run(debug=debug, host='0.0.0.0', port=port)
     
