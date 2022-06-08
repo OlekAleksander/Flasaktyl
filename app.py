@@ -148,6 +148,7 @@ def logout():
     flash("You have been logged out","success")
     return redirect(url_for('login'))
 
+# Dashboard route
 @app.route("/dashboard")
 def dashboard():
     x = session.get("username")
