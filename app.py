@@ -28,6 +28,7 @@ except:
 import logger
 import configmanager
 import json
+
 # Pterodactyl API
 panel_domain = configmanager.get_config()["api"]['panel_domain']
 key = configmanager.get_config()["api"]['key']
