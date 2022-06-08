@@ -161,7 +161,7 @@ def dashboard():
     usedram = 0.25
     usedcpu = 0.75
     useddisk = 3
-    # calculate ram usage
+    # calculate resources usage
     ram_usage = percentage(usedram,ram)
     cpu_usage = percentage(usedcpu,cpu)
     disk_usage = percentage(useddisk,disk)
