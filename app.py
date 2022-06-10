@@ -111,7 +111,7 @@ def register():
 
         users = get_users()
         # Check if user entered every field
-        if username == "" or password == "" or mail== "" or lastname == "":
+        if username == "" or password == "" or mail== "" or lastname == "" or firstname == "":
             flash("Please fill in all fields", "danger")
             return redirect(url_for('register'))
         # check if the user already exists
