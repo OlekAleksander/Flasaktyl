@@ -1,6 +1,6 @@
 # Imports
 from colorama import Fore, Back, Style
-from datetime import 
+from datetime import datetime
 
 # Functions
 def log(message):
